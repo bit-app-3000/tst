@@ -89,9 +89,7 @@ diff -b \
 argocd app get linkerd -ojson | \
   jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
 
-
-argocd app get linkerd -ojson | \
-  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
-
-
 echo "${trust_anchor}"
+
+
+linkerd upgrade --identity-trust-anchors-file=gitops/sample-trust.crt
