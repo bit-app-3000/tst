@@ -13,17 +13,7 @@ spec:
       parameters:
         - name: global.identityTrustAnchorsPEM
           value: |
-            -----BEGIN CERTIFICATE-----
-            MIIBjjCCATOgAwIBAgIQaST3QNFnk1urKlD4Z7wZbzAKBggqhkjOPQQDAjAlMSMw
-            IQYDVQQDExpyb290LmxpbmtlcmQuY2x1c3Rlci5sb2NhbDAeFw0yMTAxMjExMzM1
-            NTVaFw0yNjAxMjAxMzM1NTVaMCUxIzAhBgNVBAMTGnJvb3QubGlua2VyZC5jbHVz
-            dGVyLmxvY2FsMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5m8v1hTFgnmxsN0e
-            X8piXLQUYEtpvjH0+xau1Nf7Tk5HH2gX2zW0Etjt9HMLNr/qTsG0HBxhO2xTctSk
-            3JxDL6NFMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYD
-            VR0OBBYEFHEWkedKgVlijwUz0BRw57T7qzJtMAoGCCqGSM49BAMCA0kAMEYCIQCU
-            zuQQi9gss8Yly6R3yglOeQZ5xjvmGfPbSy9iy9abfAIhAPklb1/QhnAohKFbUX0o
-            ngVWODLl/WZg3Z1pw6kKUUle
-            -----END CERTIFICATE-----
+            ${trust_anchor}
         - name: identity.issuer.scheme
           value: kubernetes.io/tls
         - name: installNamespace
