@@ -40,21 +40,22 @@ cd gitops
 #  --type=merge \
 #  --local -oyaml > resources/linkerd/trust-anchor.yaml
 
-trust_anchor=`kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.crt']}" | base64 -d -w 0 -`
+#trust_anchor=`kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.crt']}" | base64 -d -w 0 -`
 
 
 #kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.crt']}" | base64 -d -w 0 -
 
 
 
-diff -b \
-  <(echo "${trust_anchor}" | step certificate inspect -) \
-  <(step certificate inspect sample-trust.crt)
-
-echo "${trust_anchor}"
-
-
-#argocd app get linkerd -ojson | \
-#  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
+#diff -b \
+#  <(echo "${trust_anchor}" | step certificate inspect -) \
+#  <(step certificate inspect sample-trust.crt)
 #
-#argocd app sync linkerd
+#echo "${trust_anchor}"
+
+argocd app sync maap
+
+argocd app get linkerd -ojson | \
+  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
+
+argocd app sync linkerd
