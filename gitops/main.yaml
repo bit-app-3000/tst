@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: main
+  name: maap
   namespace: argocd
 spec:
   destination:
@@ -9,5 +9,5 @@ spec:
     server: https://kubernetes.default.svc
   project: maap
   source:
-    path: ./gitops/argo-apps
+    path: ./gitops/apps
     repoURL: https://github.com/mmd-app/tst.git
