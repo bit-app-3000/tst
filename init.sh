@@ -127,6 +127,9 @@ cd gitops
 #  --dry-run=client -oyaml | \
 #kubeseal --controller-name=sealed-secrets -oyaml -
 
-kubectl get secret linkerd-trust-anchor -n linkerd  -o yaml
-kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.key']}" | base64 -d -w 0 -
+#kubectl get secret linkerd-trust-anchor -n linkerd  -o yaml
+#kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.key']}" | base64 -d -w 0 -
+
+step certificate create root.linkerd.cluster.local ca.crt ca.key \
+--profile root-ca --no-password --insecure
 
