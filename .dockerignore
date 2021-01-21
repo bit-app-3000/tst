@@ -1,0 +1,10 @@
+.idea
+.git
+*.sql
+*.gz
+*.dump
+*.md
+*.yml
+node_modules
+tmp
+etc/sql

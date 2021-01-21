@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package test;
+
+message Req {
+    float a = 1;
+}
+
+message Res {
+    float a = 1;
+    bytes b = 2;
+}
+
+service Unary {
+    rpc Get1 (google.protobuf.Empty) returns (Res);
+    rpc Get2 (google.protobuf.Empty) returns (Res);
+}
+
+service Stream {
+    rpc Stream (google.protobuf.Empty) returns (stream Res);
+}
+
+service DuplexStream {
+    rpc DuplexStream (stream Req) returns (stream Res);
+}

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import public "id.proto";
+
+package message;
+
+enum EnumAllowingAlias {
+    option allow_alias = true;
+    UNKNOWN = 0;
+    STARTED = 1;
+    RUNNING = 1;
+}
+enum EnumNotAllowingAlias {
+    UNKNOWN = 0;
+    STARTED = 1;
+    // RUNNING = 1;  // Uncommenting this line will cause a compile error inside Google and a warning message outside.
+}
+
+
+
+
+message Message {
+    int32 id = 1;
+    string email = 2;
+    string name = 3;
+    enum Corpus {
+        UNIVERSAL = 0;
+        WEB = 1;
+        IMAGES = 2;
+        LOCAL = 3;
+        NEWS = 4;
+        PRODUCTS = 5;
+        VIDEO = 6;
+    }
+
+    Corpus corpus = 4;
+}

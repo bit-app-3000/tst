@@ -1,0 +1,26 @@
+{
+  "name": "tst",
+  "version": "0.0.1",
+  "description": "tst",
+  "private": true,
+  "author": "bt",
+  "license": "",
+  "engines": {
+    "node": "15.6.0",
+    "npm": "7.4.2"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "*",
+    "@grpc/proto-loader": "*",
+    "esm": "*",
+    "fastify": "*",
+    "find-my-way": "*"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  },
+  "scripts": {
+    "start": "node -r esm --max-old-space-size=1024 --trace-warnings svc/api/index.js",
+    "init": "sh init.sh"
+  }
+}
