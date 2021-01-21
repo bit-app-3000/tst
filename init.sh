@@ -144,8 +144,15 @@ cd gitops
 #
 #kubectl get secret linkerd-identity-issuer -o yaml -n linkerd
 
-step certificate inspect ca.crt
+#step certificate inspect ca.crt
+trust_anchor=`kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.crt']}" | base64 -d -w 0 -`
+diff -b \
+  <(echo "${trust_anchor}" | step certificate inspect -) \
+  <(step certificate inspect ca.crt)
 
+
+  argocd app get linkerd -ojson | \
+  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
 
 #step certificate create root.linkerd.cluster.local ca.crt ca.key \
 #  --profile root-ca --no-password --insecure &&
@@ -155,15 +162,15 @@ step certificate inspect ca.crt
 #    --key=ca.key \
 #    --namespace=linkerd
 
-git diff gitops/resources/linkerd/trust-anchor.yaml
-
-kubectl -n linkerd create secret tls linkerd-trust-anchor \
-  --cert ca.crt \
-  --key ca.key \
-  --dry-run=client -oyaml | \
-kubeseal --controller-name=sealed-secrets -oyaml - | \
-kubectl patch -f - \
-  -p '{"spec": {"template": {"type":"kubernetes.io/tls", "metadata": {"labels": {"linkerd.io/control-plane-component":"identity", "linkerd.io/control-plane-ns":"linkerd"}, "annotations": {"linkerd.io/created-by":"linkerd/cli stable-2.8.1", "linkerd.io/identity-issuer-expiry":"2021-07-19T20:51:01Z"}}}}}' \
-  --dry-run=client \
-  --type=merge \
-  --local -oyaml > resources/linkerd/trust-anchor.yaml
+#git diff gitops/resources/linkerd/trust-anchor.yaml
+#
+#kubectl -n linkerd create secret tls linkerd-trust-anchor \
+#  --cert ca.crt \
+#  --key ca.key \
+#  --dry-run=client -oyaml | \
+#kubeseal --controller-name=sealed-secrets -oyaml - | \
+#kubectl patch -f - \
+#  -p '{"spec": {"template": {"type":"kubernetes.io/tls", "metadata": {"labels": {"linkerd.io/control-plane-component":"identity", "linkerd.io/control-plane-ns":"linkerd"}, "annotations": {"linkerd.io/created-by":"linkerd/cli stable-2.8.1", "linkerd.io/identity-issuer-expiry":"2021-07-19T20:51:01Z"}}}}}' \
+#  --dry-run=client \
+#  --type=merge \
+#  --local -oyaml > resources/linkerd/trust-anchor.yaml
