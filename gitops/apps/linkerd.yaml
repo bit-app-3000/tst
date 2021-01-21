@@ -14,15 +14,15 @@ spec:
         - name: global.identityTrustAnchorsPEM
           value: |
             -----BEGIN CERTIFICATE-----
-            MIIBjjCCATOgAwIBAgIQLAF7I/CJMDnWoaxHxCjouzAKBggqhkjOPQQDAjAlMSMw
-            IQYDVQQDExpyb290LmxpbmtlcmQuY2x1c3Rlci5sb2NhbDAeFw0yMTAxMjExNTAz
-            MjZaFw0yNjAxMjAxNTAzMjZaMCUxIzAhBgNVBAMTGnJvb3QubGlua2VyZC5jbHVz
-            dGVyLmxvY2FsMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZ000w6WZ/0CO/CF6
-            JQohyu6drr/3gCZBX1PRHKS4vp3EB5EaNoSeuThRiSZHnQz/9XFrFx0dN5SKfQlM
-            91pQZqNFMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYD
-            VR0OBBYEFOSC05Jq0PvY2YsweuQQIWvDKDKvMAoGCCqGSM49BAMCA0kAMEYCIQDD
-            G14y3ZBXHvjKCIjAxGm7t5Fl1QKUw5ZUhkt2S0RvygIhAOrzGO9UZAO4lN8/HSCl
-            uRGpQ0LMLCPMwP0qthBjL83z
+            MIIBjDCCATOgAwIBAgIQT82xCNZoAPWVvzLYoFgHGjAKBggqhkjOPQQDAjAlMSMw
+            IQYDVQQDExpyb290LmxpbmtlcmQuY2x1c3Rlci5sb2NhbDAeFw0yMTAxMjEyMTIx
+            MDdaFw0zMTAxMTkyMTIxMDdaMCUxIzAhBgNVBAMTGnJvb3QubGlua2VyZC5jbHVz
+            dGVyLmxvY2FsMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDjMDV+XVMB8+/s9c
+            Z3cN/Woi8fKw2WPk3VBk1KpFkagiYOq4Xbf0tJQ7YQDYWfm4nhiApQps0tj/5KRL
+            1iXAoqNFMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYD
+            VR0OBBYEFOZI66EyincCVruaKgOAW4ZwDcnmMAoGCCqGSM49BAMCA0cAMEQCICpC
+            zwTQX4buIOvhzvRydVn7MOS6C03IQyKfafXH4TkJAiABdmVy5wL8W0OnUDmnAf9z
+            0wkUal3zld5edBQ2CR7f/w==
             -----END CERTIFICATE-----
 
         - name: identity.issuer.scheme
