@@ -12,8 +12,7 @@ spec:
     helm:
       parameters:
       - name: global.identityTrustAnchorsPEM
-        value: |
-          ${trust_anchor}
+        value: ${trust_anchor}
       - name: identity.issuer.scheme
         value: kubernetes.io/tls
       - name: installNamespace
