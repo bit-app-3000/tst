@@ -53,9 +53,27 @@ cd gitops
 #
 #echo "${trust_anchor}"
 
-argocd app sync maap
+#argocd app sync maap
+#
+#argocd app get linkerd -ojson | \
+#  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
+#
+#argocd app sync linkerd
 
-argocd app get linkerd -ojson | \
-  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
-
-argocd app sync linkerd
+#step certificate create root.linkerd.cluster.local sample-trust.crt sample-trust.key \
+#  --profile root-ca \
+#  --no-password \
+#  --not-after 43800h \
+#  --insecure
+#
+#
+#kubectl -n linkerd create secret tls linkerd-trust-anchor \
+#  --cert sample-trust.crt \
+#  --key sample-trust.key \
+#  --dry-run=client -oyaml | \
+#kubeseal --controller-name=sealed-secrets -oyaml - | \
+#kubectl patch -f - \
+#  -p '{"spec": {"template": {"type":"kubernetes.io/tls", "metadata": {"labels": {"linkerd.io/control-plane-component":"identity", "linkerd.io/control-plane-ns":"linkerd"}, "annotations": {"linkerd.io/created-by":"linkerd/cli stable-2.9.2", "linkerd.io/identity-issuer-expiry":"2021-07-19T20:51:01Z"}}}}}' \
+#  --dry-run=client \
+#  --type=merge \
+#  --local -oyaml > resources/linkerd/trust-anchor.yaml
