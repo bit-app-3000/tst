@@ -85,6 +85,6 @@ diff -b \
   <(echo "${trust_anchor}" | step certificate inspect -) \
   <(step certificate inspect sample-trust.crt)
 
-
+#argocd app sync linkerd
 argocd app get linkerd -ojson | \
   jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
