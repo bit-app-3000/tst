@@ -78,18 +78,55 @@ cd gitops
 #  --type=merge \
 #  --local -oyaml > resources/linkerd/trust-anchor.yaml
 
+#
+#trust_anchor=`kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.crt']}" | base64 -d -w 0 -`
+#
+#diff -b \
+#  <(echo "${trust_anchor}" | step certificate inspect -) \
+#  <(step certificate inspect sample-trust.crt)
+#
+##argocd app sync maap
+#argocd app get linkerd -ojson | \
+#  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
+#
+#echo "${trust_anchor}"
+#
+#
+#linkerd upgrade --identity-trust-anchors-file=gitops/sample-trust.crt
 
-trust_anchor=`kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.crt']}" | base64 -d -w 0 -`
-
-diff -b \
-  <(echo "${trust_anchor}" | step certificate inspect -) \
-  <(step certificate inspect sample-trust.crt)
-
-#argocd app sync maap
-argocd app get linkerd -ojson | \
-  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
-
-echo "${trust_anchor}"
 
 
-linkerd upgrade --identity-trust-anchors-file=gitops/sample-trust.crt
+#kubectl -n linkerd get cm linkerd-config -o=jsonpath='{.data.global}' |  \
+#jq -r .identityContext.trustAnchorsPem > original-trust.crt
+#
+#
+#kubectl -n linkerd get cm linkerd-config -o=jsonpath='{.data.values}' | \
+#jq -r - global.identityTrustAnchorsPEM > original-issuer.crt
+#
+#
+#
+#step certificate create root.linkerd.cluster.local trust.crt trust.key \
+#  --profile root-ca \
+#  --no-password \
+#  --not-after 43800h \
+#  --insecure
+
+
+#kubectl -n linkerd create secret tls linkerd-trust-anchor \
+#  --cert trust.crt \
+#  --key trust.key \
+#  --dry-run=client -oyaml
+
+#argocd app get linkerd -ojson | \
+#  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
+#
+
+#kubectl -n linkerd create secret tls linkerd-trust-anchor \
+#  --cert sample-trust.crt \
+#  --key sample-trust.key \
+#  --dry-run=client -oyaml | \
+#kubeseal --controller-name=sealed-secrets -oyaml -
+
+kubectl get secret linkerd-trust-anchor -n linkerd  -o yaml
+kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.key']}" | base64 -d -w 0 -
+

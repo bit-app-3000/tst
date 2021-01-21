@@ -25,7 +25,7 @@ spec:
             uRGpQ0LMLCPMwP0qthBjL83z
             -----END CERTIFICATE-----
         - name: identity.issuer.scheme
-          value: kubernetes.io/tls
+          value: linkerd.io/tls
         - name: installNamespace
           value: "false"
   destination:
