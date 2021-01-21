@@ -13,8 +13,7 @@ spec:
       parameters:
       - name: global.identityTrustAnchorsPEM
         value: |
-          -----BEGIN CERTIFICATE-----
-          -----END CERTIFICATE-----
+          ${trust_anchor}
       - name: identity.issuer.scheme
         value: kubernetes.io/tls
       - name: installNamespace
