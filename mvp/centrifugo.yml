@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: Always
           name: centrifugo
           command: [ "centrifugo" ]
-#          args: [ "-c", "config.json", "--port",  "8000",  "--admin" ]
+          args: [  "8000",  "--admin" ]
           ports:
             - containerPort: 8000
 
@@ -41,7 +41,7 @@ metadata:
 
 spec:
   ports:
-    - port: 80
+    - port: 8000
       targetPort: 8000
 
   selector:
