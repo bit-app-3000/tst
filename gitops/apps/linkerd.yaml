@@ -49,6 +49,9 @@ spec:
           value: linkerd.io/tls
         - name: installNamespace
           value: "false"
+        - name: identity.issuer.crtExpiry
+          value: 2022-01-22T10:55:50Z
+
   destination:
     namespace: linkerd
     server: https://kubernetes.default.svc

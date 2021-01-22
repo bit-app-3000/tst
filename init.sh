@@ -145,14 +145,14 @@ cd gitops
 #kubectl get secret linkerd-identity-issuer -o yaml -n linkerd
 
 #step certificate inspect ca.crt
-trust_anchor=`kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.crt']}" | base64 -d -w 0 -`
-diff -b \
-  <(echo "${trust_anchor}" | step certificate inspect -) \
-  <(step certificate inspect ca.crt)
-
-
-  argocd app get linkerd -ojson | \
-  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
+#trust_anchor=`kubectl -n linkerd get secret linkerd-trust-anchor -ojsonpath="{.data['tls\.crt']}" | base64 -d -w 0 -`
+#diff -b \
+#  <(echo "${trust_anchor}" | step certificate inspect -) \
+#  <(step certificate inspect ca.crt)
+#
+#
+#  argocd app get linkerd -ojson | \
+#  jq -r '.spec.source.helm.parameters[] | select(.name == "global.identityTrustAnchorsPEM") | .value'
 
 #step certificate create root.linkerd.cluster.local ca.crt ca.key \
 #  --profile root-ca --no-password --insecure &&
@@ -180,8 +180,10 @@ diff -b \
 #--profile intermediate-ca --not-after 8760h --no-password --insecure \
 #--ca ca.crt --ca-key ca.key
 
-linkerd upgrade \
-    --identity-issuer-certificate-file=issuer.crt \
-    --identity-issuer-key-file=issuer.key \
-    --identity-trust-anchors-file=ca.crt \
-    --force | kubectl apply -f -
+#linkerd upgrade \
+#    --identity-issuer-certificate-file=issuer.crt \
+#    --identity-issuer-key-file=issuer.key \
+#    --identity-trust-anchors-file=ca.crt \
+#    --force | kubectl apply -f -
+
+date -d '+8760 hour' +"%Y-%m-%dT%H:%M:%SZ"
