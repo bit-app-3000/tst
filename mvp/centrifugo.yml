@@ -28,7 +28,7 @@ spec:
           ports:
             - containerPort: 8000
           volumeMounts:
-            - mountPath: /config.json
+            - mountPath: config.json
               name: config
       volumes:
         - name: config
