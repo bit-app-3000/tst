@@ -43,7 +43,7 @@ metadata:
 
 spec:
   ports:
-    - port: 9393
+    - port: 80
       targetPort: 9393
 
   selector:
