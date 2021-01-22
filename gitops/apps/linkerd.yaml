@@ -24,7 +24,6 @@ spec:
             zwTQX4buIOvhzvRydVn7MOS6C03IQyKfafXH4TkJAiABdmVy5wL8W0OnUDmnAf9z
             0wkUal3zld5edBQ2CR7f/w==
             -----END CERTIFICATE-----
-
         - name: identity.issuer.tls.crtPEM
           value: |
             -----BEGIN CERTIFICATE-----
@@ -39,8 +38,6 @@ spec:
             Q9iwj9D8Wp6B6staVZ0EQk+K6rECIG43lz/CvSn7Ny9V0lJC6nNzeXBqwHaHSeMc
             8XgGUqb7
             -----END CERTIFICATE-----
-
-
         - name: identity.issuer.tls.keyPEM
           value: |
             -----BEGIN EC PRIVATE KEY-----
@@ -48,14 +45,10 @@ spec:
             AwEHoUQDQgAEUqz9cbnbRgz8LU0vG760JCikP7PkZcrsf67kfbFmUjZSF9Xn1zkb
             xs2Q1ak8xcsiu4vEfjabPDtvCc+IYfH73g==
             -----END EC PRIVATE KEY-----
-
         - name: identity.issuer.scheme
           value: linkerd.io/tls
-
         - name: installNamespace
           value: "false"
-
-
   destination:
     namespace: linkerd
     server: https://kubernetes.default.svc
