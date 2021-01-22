@@ -24,9 +24,18 @@ spec:
           imagePullPolicy: Always
           name: centrifugo
           command: [ "centrifugo" ]
-          args: ["-c", "https://raw.githubusercontent.com/mmd-app/tst/master/mvp/cfg/config.json", "--port",  "8000",  "--admin" ]
+          args: [ "-c", "config.json", "--port",  "8000",  "--admin" ]
           ports:
             - containerPort: 8000
+          volumeMounts:
+            - mountPath: /config.json
+              name: config
+      volumes:
+        - name: config
+          hostPath:
+            path: /cfg/config.json
+            type: FileOrCreate
+
 
 ---
 apiVersion: v1
