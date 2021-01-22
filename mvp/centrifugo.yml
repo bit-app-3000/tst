@@ -39,9 +39,9 @@ metadata:
 
 spec:
   ports:
-    - port: 8585
+    - port: 80
       targetPort: 8000
 
   selector:
     app: centrifugo
-  type: ClusterIP
+  type: LoadBalancer

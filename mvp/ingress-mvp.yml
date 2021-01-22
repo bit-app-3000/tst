@@ -20,5 +20,5 @@ spec:
 #          - path: /tst/*
 #            backend:
 #              serviceName: broadcasts
-#              servicePort: 9393
+#              servicePort: 9393e
 
