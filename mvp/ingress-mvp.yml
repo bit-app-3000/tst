@@ -14,15 +14,14 @@ spec:
     serviceName: broadcasts
     servicePort: 80
   rules:
-  - host: fobos.app
-    http:
-      paths:
-        - path: /
-          backend:
-            serviceName: broadcasts
-            servicePort: 80
-        - path: /ws/*
+    - host: fobos.app
+      http:
+        paths:
+          - path: /
             backend:
-              serviceName: centrifugo
+              serviceName: broadcasts
               servicePort: 80
-
+          - path: /ws
+              backend:
+                serviceName: centrifugo
+                servicePort: 80
