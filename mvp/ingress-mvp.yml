@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+
+metadata:
+  name: maap
+  namespace: maap
+  annotations:
+    kubernetes.io/ingress.class: gce
+    ingress.gcp.kubernetes.io/pre-shared-cert: maap-fbs
+    kubernetes.io/ingress.global-static-ip-name: maap-fbs
+
+spec:
+  backend:
+    serviceName: broadcasts
+    servicePort: broadcasts
+  rules:
+  - host: fobos.app
+    http:
+      paths:
+      - backend:
+          serviceName: broadcasts
+          servicePort: broadcasts
