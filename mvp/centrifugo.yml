@@ -25,7 +25,6 @@ spec:
           name: centrifugo
           ports:
             - containerPort: 8000
-              name: http
 
 ---
 apiVersion: v1
@@ -40,8 +39,7 @@ metadata:
 
 spec:
   ports:
-    - name: centrifugo
-      port: 80
+    - port: 8000
       targetPort: 8000
 
   selector:

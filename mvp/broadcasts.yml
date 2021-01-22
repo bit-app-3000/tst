@@ -43,8 +43,7 @@ metadata:
 
 spec:
   ports:
-    - name: broadcats
-      port: 80
+    - port: 9393
       targetPort: 9393
 
   selector:

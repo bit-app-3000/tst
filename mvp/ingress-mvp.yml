@@ -17,9 +17,9 @@ spec:
           - path: /*
             backend:
               serviceName: centrifugo
-              servicePort: 80
+              servicePort: 8000
 
           - path: /broadcasts/*
             backend:
               serviceName: broadcasts
-              servicePort: 80
+              servicePort: 9393
