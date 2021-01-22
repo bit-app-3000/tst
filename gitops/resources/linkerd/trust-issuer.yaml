@@ -25,7 +25,7 @@ spec:
   privateKey:
     algorithm: ECDSA
   usages:
-  - cert sign
-  - crl sign
-  - server auth
-  - client auth
+    - cert sign
+    - crl sign
+    - server auth
+    - client auth

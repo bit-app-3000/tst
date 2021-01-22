@@ -174,3 +174,14 @@ diff -b \
 #  --dry-run=client \
 #  --type=merge \
 #  --local -oyaml > resources/linkerd/trust-anchor.yaml
+
+
+#step certificate create identity.linkerd.cluster.local issuer.crt issuer.key \
+#--profile intermediate-ca --not-after 8760h --no-password --insecure \
+#--ca ca.crt --ca-key ca.key
+
+linkerd upgrade \
+    --identity-issuer-certificate-file=issuer.crt \
+    --identity-issuer-key-file=issuer.key \
+    --identity-trust-anchors-file=ca.crt \
+    --force | kubectl apply -f -
