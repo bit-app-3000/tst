@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: Always
           name: centrifugo
           command: [ "centrifugo" ]
-          args: [ "-c", "config.json", "--port",  "8000",  "--admin" ]
+          args: [ "-c", "config.yaml", "--port",  "8000",  "--admin" ]
           ports:
             - containerPort: 8000
           volumeMounts:
