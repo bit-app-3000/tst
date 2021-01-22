@@ -29,9 +29,9 @@ spec:
             - containerPort: 8000
 
           volumeMounts:
-            - mountPath: config.yaml
+            - mountPath: /centrifugo/config.yaml
               name: config
-              subPath: config.yaml
+#              subPath: config.yaml
 
       volumes:
         - name: config
