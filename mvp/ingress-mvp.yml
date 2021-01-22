@@ -22,7 +22,7 @@ spec:
               serviceName: broadcasts
               servicePort: 80
 
-          - path: /tst
-            backend:
-              serviceName: centrifugo
-              servicePort: 80
+#          - path: /
+#            backend:
+#              serviceName: centrifugo
+#              servicePort: 80
