@@ -21,6 +21,7 @@
   },
   "scripts": {
     "start": "node -r esm --max-old-space-size=1024 --trace-warnings svc/api/index.js",
-    "init": "sh init.sh"
+    "init": "sh init.sh",
+    "crt": "sh crt.sh"
   }
 }

@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: broadcasts
+  namespace: argocd
+  labels:
+    app: broadcasts
+
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: broadcasts
+
+  template:
+    metadata:
+      labels:
+        app: broadcasts
+
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - image: gcr.io/maap-test-292714/broadcasts:dev
+          imagePullPolicy: Always
+          name: broadcasts
+          command: [ 'node' ]
+          args: [ '-r', 'esm', 'src/server/index.js' ]
+          ports:
+            - containerPort: 9393
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: broadcasts
+  namespace: argocd
+  labels:
+    app: broadcasts
+#  annotations:
+#    beta.cloud.google.com/backend-config: '{"default": "iap"}'
+#    cloud.google.com/neg: '{"ingress": true}'
+
+spec:
+  ports:
+    - name: broadcats
+      port: 80
+      targetPort: 9393
+
+  selector:
+    app: broadcasts
+  type: ClusterIP
