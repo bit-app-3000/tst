@@ -56,4 +56,4 @@ spec:
 
   selector:
     app: centrifugo
-  type: LoadBalancer
+  type: ClusterIP
