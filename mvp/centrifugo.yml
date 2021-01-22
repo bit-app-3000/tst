@@ -3,7 +3,7 @@ kind: Deployment
 
 metadata:
   name: centrifugo
-  namespace: argocd
+  namespace: mvp
   labels:
     app: centrifugo
 
@@ -33,7 +33,7 @@ kind: Service
 metadata:
 
   name: centrifugo
-  namespace: argocd
+  namespace: mvp
 
   labels:
     app: centrifugo

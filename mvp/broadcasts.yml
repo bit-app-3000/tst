@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: broadcasts
-  namespace: argocd
+  namespace: mvp
   labels:
     app: broadcasts
 
@@ -34,7 +34,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: broadcasts
-  namespace: argocd
+  namespace: mvp
   labels:
     app: broadcasts
 #  annotations:
