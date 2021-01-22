@@ -12,12 +12,12 @@ metadata:
 spec:
   backend:
     serviceName: broadcasts
-    servicePort: 9393
+    servicePort: 80
   rules:
   - host: fobos.app
     http:
       paths:
-        - path: /*
+        - path: /
           backend:
             serviceName: broadcasts
-            servicePort: 9393
+            servicePort: 80
