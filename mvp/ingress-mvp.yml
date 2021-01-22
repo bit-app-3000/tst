@@ -16,21 +16,21 @@ spec:
     - host: fobos.app
       http:
         paths:
-          - path: /
+          - path: /*
             backend:
               serviceName: broadcasts
               servicePort: 80
     - host: api.fobos.app
       http:
         paths:
-          - path: /
+          - path: /*
             backend:
               serviceName: broadcasts
               servicePort: 80
     - host: smpp.fobos.app
       http:
         paths:
-          - path: /
+          - path: /*
             backend:
               serviceName: broadcasts
               servicePort: 80
