@@ -28,14 +28,12 @@ spec:
           ports:
             - containerPort: 8000
           volumeMounts:
-            - mountPath: config.json
+            - mountPath: /config.json
               name: config
       volumes:
         - name: config
-          hostPath:
-            path: cfg/config.json
-            type: FileOrCreate
-
+          configMap:
+            name: centrifugo-config
 
 ---
 apiVersion: v1
