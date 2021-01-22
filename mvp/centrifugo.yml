@@ -23,8 +23,13 @@ spec:
         - image: centrifugo/centrifugo
           imagePullPolicy: Always
           name: centrifugo
-          command: [ "centrifugo" ]
-          args: [ "-c", "config.yaml", "--port",  "8000",  "--admin" ]
+          command: centrifugo
+          args:
+            - -c
+            - config.yaml
+            - --port
+            - 8000
+            - --admin
           ports:
             - containerPort: 8000
 
