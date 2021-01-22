@@ -8,7 +8,6 @@ metadata:
     kubernetes.io/ingress.class: gce
     ingress.gcp.kubernetes.io/pre-shared-cert: maap-fbs
     kubernetes.io/ingress.global-static-ip-name: maap-fbs
-
 spec:
   rules:
     - host: fobos.app
