@@ -23,7 +23,8 @@ spec:
         - image: centrifugo/centrifugo
           imagePullPolicy: Always
           name: centrifugo
-          command: centrifugo
+          command:
+            - centrifugo
           args:
             - -c
             - config.yaml
