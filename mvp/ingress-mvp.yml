@@ -6,7 +6,7 @@ metadata:
   namespace: mvp
   annotations:
     kubernetes.io/ingress.class: gce
-    ingress.gcp.kubernetes.io/pre-shared-cert: maap-fbs
+    ingress.gcp.kubernetes.io/pre-shared-cert: mvp
     kubernetes.io/ingress.global-static-ip-name: maap-fbs
 spec:
   backend:
