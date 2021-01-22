@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: argocd
+  namespace: argocd
+  annotations:
+
+    kubernetes.io/ingress.class: gce
+    ingress.gcp.kubernetes.io/pre-shared-cert: cd
+
+#    kubernetes.io/ingress.allow-http: "false"
+#    ingress.kubernetes.io/ssl-redirect: "false"
+
+    kubernetes.io/ingress.global-static-ip-name: cd-maap
+
+
+spec:
+  backend:
+    serviceName: argocd-server
+    servicePort: http
+  rules:
+    - host: cd.fobos.app
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: argocd-server
+              servicePort: http
+
