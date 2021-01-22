@@ -27,9 +27,11 @@ spec:
           args: [ "-c", "config.yaml", "--port",  "8000",  "--admin" ]
           ports:
             - containerPort: 8000
+
           volumeMounts:
             - mountPath: config.yaml
               name: config
+              subPath: config.yaml
 
       volumes:
         - name: config
