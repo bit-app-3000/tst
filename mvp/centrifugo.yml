@@ -30,11 +30,11 @@ spec:
           volumeMounts:
             - mountPath: config.yaml
               name: config
+
       volumes:
         - name: config
           configMap:
-            - name: centrifugo-config
-              key: config
+            name: centrifugo-config
 
 ---
 apiVersion: v1
