@@ -10,19 +10,16 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: maap-fbs
 
 spec:
-  backend:
-    serviceName: broadcasts
-    servicePort: 80
   rules:
     - host: fobos.app
       http:
         paths:
-          - path: /
+          - path: /ws/*
+              backend:
+                serviceName: centrifugo
+                servicePort: 8585
+          - path: /tst/*
             backend:
               serviceName: broadcasts
-              servicePort: 80
+              servicePort: 9393
 
-#          - path: /
-#            backend:
-#              serviceName: centrifugo
-#              servicePort: 80
