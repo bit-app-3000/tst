@@ -49,4 +49,4 @@ spec:
 
   selector:
     app: broadcasts
-  type: LoadBalancer
+  type: ClusterIP
