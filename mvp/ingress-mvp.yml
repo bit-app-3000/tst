@@ -15,9 +15,9 @@ spec:
       http:
         paths:
           - path: /ws/*
-              backend:
-                serviceName: centrifugo
-                servicePort: 8585
+            backend:
+              serviceName: centrifugo
+              servicePort: 8585
           - path: /tst/*
             backend:
               serviceName: broadcasts
