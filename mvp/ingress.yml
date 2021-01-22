@@ -17,13 +17,13 @@ metadata:
 spec:
   backend:
     serviceName: argocd-server
-    servicePort: http
+    servicePort: https
   rules:
     - host: cd.fobos.app
       http:
         paths:
-          - path: /
+          - path: /*
             backend:
               serviceName: argocd-server
-              servicePort: http
+              servicePort: https
 
