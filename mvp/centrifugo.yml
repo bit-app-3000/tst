@@ -33,7 +33,7 @@ spec:
       volumes:
         - name: config
           hostPath:
-            path: /cfg/config.json
+            path: cfg/config.json
             type: FileOrCreate
 
 
