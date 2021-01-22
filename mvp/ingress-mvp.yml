@@ -17,6 +17,7 @@ spec:
   - host: fobos.app
     http:
       paths:
-      - backend:
-          serviceName: broadcasts
-          servicePort: broadcasts
+        - path: /*
+          backend:
+            serviceName: broadcasts
+            servicePort: broadcasts
