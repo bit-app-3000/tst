@@ -13,12 +13,12 @@ spec:
     - host: fobos.app
       http:
         paths:
-          - path: /ws/*
+          - path: /*
             backend:
               serviceName: centrifugo
               servicePort: 8585
-          - path: /tst/*
-            backend:
-              serviceName: broadcasts
-              servicePort: 9393
+#          - path: /tst/*
+#            backend:
+#              serviceName: broadcasts
+#              servicePort: 9393
 
