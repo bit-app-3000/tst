@@ -20,11 +20,12 @@ spec:
 
     spec:
       containers:
-        - image: gcr.io/maap-test-292714/cfgo:dev
+        - image: centrifugo/centrifugo
           imagePullPolicy: Always
           name: centrifugo
           ports:
             - containerPort: 8000
+          command:  centrifugo
 
 ---
 apiVersion: v1
