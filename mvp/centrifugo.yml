@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: Always
           name: centrifugo
           command: [ "centrifugo" ]
-          args: [  "8000",  "--admin" ]
+          args: [ "--port",  "8000",  "--admin" ]
           ports:
             - containerPort: 8000
 
