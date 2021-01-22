@@ -33,7 +33,7 @@ kind: Service
 metadata:
 
   name: centrifugo
-  namespace: maap
+  namespace: argocd
 
   labels:
     app: centrifugo
