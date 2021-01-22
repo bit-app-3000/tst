@@ -7,17 +7,13 @@ metadata:
 
     kubernetes.io/ingress.class: gce
     ingress.gcp.kubernetes.io/pre-shared-cert: cd
-
-#    kubernetes.io/ingress.allow-http: "false"
-#    ingress.kubernetes.io/ssl-redirect: "false"
-
     kubernetes.io/ingress.global-static-ip-name: cd-maap
 
 
 spec:
   backend:
     serviceName: argocd-server
-    servicePort: http
+    servicePort: 80
   rules:
     - host: cd.fobos.app
       http:
@@ -25,5 +21,4 @@ spec:
           - path: /*
             backend:
               serviceName: argocd-server
-              servicePort: http
-
+              servicePort: 80

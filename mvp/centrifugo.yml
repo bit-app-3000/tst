@@ -40,8 +40,8 @@ metadata:
 
 spec:
   ports:
-    - name: http
-      port: 8585
+    - name: centrifugo
+      port: 8000
       targetPort: 8000
 
   selector:
