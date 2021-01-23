@@ -12,9 +12,12 @@
   "dependencies": {
     "@grpc/grpc-js": "*",
     "@grpc/proto-loader": "*",
+    "centrifuge": "*",
     "esm": "*",
     "fastify": "*",
-    "find-my-way": "*"
+    "find-my-way": "*",
+    "jose": "*",
+    "ws": "*"
   },
   "devDependencies": {
     "nodemon": "*"

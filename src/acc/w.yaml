@@ -1,0 +1,7 @@
+- getSendResponse:
+    call: http.post
+    args:
+        url: http://44.in.ua/wf-send
+    result: SendResponse
+- returnOutput:
+    return: ${SendResponse.body}
