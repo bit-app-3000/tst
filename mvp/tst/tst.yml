@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tst
+  namespace: mvp
+  labels:
+    app: tst
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tst
+
+  template:
+    metadata:
+      labels:
+        app: tst
+
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - image: gcr.io/maap-test-292714/broadcasts:dev
+          imagePullPolicy: Always
+          name: tst
+          command: [ 'node' ]
+          args: [ '-r', 'esm', 'src/server/index.js' ]
+          ports:
+            - containerPort: 9393
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tst
+  namespace: mvp
+  labels:
+    app: tst
+
+
+spec:
+  ports:
+    - port: 80
+      targetPort: 9393
+
+  selector:
+    app: tst
+  type: ClusterIP
