@@ -1,13 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: tst
+namespace: mvp
 
 commonLabels:
   app: tst
 
 
 resources:
-  - res.yaml
+  - tst.yml
 
 
 patchesJson6902:
@@ -17,4 +17,4 @@ patchesJson6902:
       name: tst
       namespace: mvp
       version: v1
-    path: ./auto-inject.yaml
+    path: ./auto-inject.yml
