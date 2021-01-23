@@ -37,7 +37,7 @@ spec:
     - host: ws.fobos.app
       http:
         paths:
-          - path: /
+          - path: /*
             backend:
               serviceName: centrifugo
               servicePort: 80
