@@ -17,4 +17,4 @@ patchesJson6902:
       name: tst
       namespace: mvp
       version: v1
-    path: ./auto-inject.yml
+    path: auto-inject.yml
