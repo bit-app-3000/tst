@@ -3,7 +3,7 @@ kind: Application
 
 metadata:
   name: tst
-  namespace: tst
+  namespace: argocd
 
 spec:
   destination:
