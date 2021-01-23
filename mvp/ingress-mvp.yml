@@ -9,9 +9,6 @@ metadata:
     ingress.gcp.kubernetes.io/pre-shared-cert: mvp
     kubernetes.io/ingress.global-static-ip-name: maap-fbs
 spec:
-  backend:
-    serviceName: broadcasts
-    servicePort: 80
   rules:
     - host: fobos.app
       http:
