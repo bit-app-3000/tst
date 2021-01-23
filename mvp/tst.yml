@@ -3,12 +3,13 @@ kind: Application
 
 metadata:
   name: tst
-  namespace: mvp
+  namespace: tst
 
 spec:
   destination:
-    namespace: mvp
+    namespace: tst
     server: https://kubernetes.default.svc
   project: demo
   source:
     path: tst
+    repoURL: https://github.com/mmd-app/tst
