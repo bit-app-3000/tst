@@ -1,15 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-
 metadata:
   name: tst
   namespace: argocd
-
 spec:
-  destination:
-    namespace: tst
-    server: https://kubernetes.default.svc
   project: default
   source:
     path: tst
     repoURL: https://github.com/mmd-app/tst
+  destination:
+    namespace: tst
+    server: https://kubernetes.default.svc
