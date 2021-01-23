@@ -13,12 +13,12 @@ data:
     log_level: debug
     admin: true
     engine: memory
-    websocket_compression: true
+    websocket_compression: false
     client_insecure: true
     health: true
     debug: false
     sockjs_disable: true
-    api_disable: true
+    api_disable: false
     websocket_handler_prefix: /hub
 #    admin_handler_prefix: /admin
 

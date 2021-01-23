@@ -6,7 +6,7 @@ const { log: LOG, error: ERR } = console
 
 // const uri = 'ws://localhost/connection/websocket'
 // const uri = 'wss://fobos.app/connection/websocket'
-const uri = 'wss://ws.fobos.app/'
+const uri = 'wss://ws.fobos.app/hub'
 // const uri = 'ws://localhost/ws'
 const user = 'bt'
 const privateKey = createSecretKey('s0DUdTauvlfLlYIGLQCjoWF8DksuudUM')
@@ -25,27 +25,27 @@ const TOKEN = payload =>
 const callbacks = {
   'publish': function (message) {
     // See below description of message format
-    LOG(message)
+    LOG('publish', message)
   },
   'join': function (message) {
     // See below description of join message format
-    LOG(message)
+    LOG('join', message)
   },
   'leave': function (message) {
     // See below description of leave message format
-    LOG(message)
+    LOG('leave', message)
   },
   'subscribe': function (context) {
     // See below description of subscribe callback context format
-    LOG(context)
+    LOG('subscribe', context)
   },
   'error': function (err) {
     // See below description of subscribe error callback context format
-    LOG(err)
+    LOG('error', err)
   },
   'unsubscribe': function (context) {
     // See below description of unsubscribe event callback context format
-    LOG(context)
+    LOG('unsubscribe', context)
   }
 }
 
@@ -58,16 +58,26 @@ centrifuge.subscribe('test', callbacks)
 
 centrifuge.on('connect', LOG)
 
-const connect = async () => {
+centrifuge.on('connect', function(res){
+  LOG('connect', res)
+})
 
-  // const token = await TOKEN({ info: { name: 'BT' } }).catch(ERR)
-  //
-  // centrifuge.setToken(token)
+centrifuge.on('disconnect', function(res){
+  LOG('disconnect', res)
+})
 
-  centrifuge.connect()
-}
+// const connect = async () => {
+//
+//   // const token = await TOKEN({ info: { name: 'BT' } }).catch(ERR)
+//   //
+//   // centrifuge.setToken(token)
+//
+//   centrifuge.connect()
+// }
+//
+// connect().catch(ERR)
 
-connect().catch(ERR)
+centrifuge.connect()
 
 
 
