@@ -20,7 +20,7 @@ spec:
 
     spec:
       containers:
-        - image: centrifugo/centrifugo
+        - image: centrifugo/centrifugo:latest
           imagePullPolicy: Always
           name: centrifugo
           command: [ 'centrifugo' ]
