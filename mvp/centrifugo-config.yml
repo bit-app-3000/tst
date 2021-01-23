@@ -21,4 +21,4 @@ data:
     sockjs_disable: true
     api_disable: true
     admin_handler_prefix: /admin
-    websocket_handler_prefix: /ws
+    websocket_handler_prefix: /connect
