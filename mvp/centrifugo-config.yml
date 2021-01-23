@@ -12,7 +12,7 @@ data:
     admin_secret: secret
     log_level: debug
     admin: true
-    port: 8000
+    port: 80
     engine: memory
     websocket_compression: true
     client_insecure: true

@@ -26,7 +26,7 @@ spec:
           command: [ 'centrifugo' ]
           args: [ '-c', 'config.yaml' ]
           ports:
-            - containerPort: 8000
+            - containerPort: 80
 
           volumeMounts:
             - mountPath: /centrifugo/config.yaml
@@ -51,8 +51,8 @@ metadata:
 
 spec:
   ports:
-    - port: 8000
-      targetPort: 8000
+    - port: 80
+      targetPort: 80
 
   selector:
     app: centrifugo
