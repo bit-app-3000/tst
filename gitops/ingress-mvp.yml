@@ -44,4 +44,4 @@ spec:
           - path: /
             backend:
               serviceName: centrifugo
-              servicePort: 80
+              servicePort: 8000
