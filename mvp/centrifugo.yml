@@ -28,6 +28,10 @@ spec:
           ports:
             - containerPort: 80
 
+          env:
+            - name: CENTRIFUGO_PORT
+              value: ''
+
           volumeMounts:
             - mountPath: /centrifugo/config.yaml
               name: config
