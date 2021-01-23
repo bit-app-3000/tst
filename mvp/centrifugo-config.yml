@@ -14,7 +14,9 @@ data:
     admin: true
     engine: memory
     websocket_compression: false
+    client_anonymous: true
     client_insecure: true
+    gomaxprocs:1
     health: true
     debug: false
     sockjs_disable: true
