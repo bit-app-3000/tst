@@ -19,6 +19,6 @@ data:
     debug: false
     sockjs_disable: true
     api_disable: true
-    websocket_handler_prefix: /
-    admin_handler_prefix: /admin
+    websocket_handler_prefix: /hub
+#    admin_handler_prefix: /admin
 

@@ -6,7 +6,7 @@ const { log: LOG, error: ERR } = console
 
 // const uri = 'ws://localhost/connection/websocket'
 // const uri = 'wss://fobos.app/connection/websocket'
-const uri = 'wss://ws.fobos.app/connection/websocket'
+const uri = 'wss://ws.fobos.app/'
 // const uri = 'ws://localhost/ws'
 const user = 'bt'
 const privateKey = createSecretKey('s0DUdTauvlfLlYIGLQCjoWF8DksuudUM')
