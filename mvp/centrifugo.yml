@@ -26,7 +26,7 @@ spec:
           command: [ 'centrifugo' ]
           args: [ '-c', 'config.yaml' ]
           ports:
-            - containerPort: 80
+            - containerPort: 8000
 
           env:
             - name: CENTRIFUGO_PORT
@@ -56,7 +56,7 @@ metadata:
 spec:
   ports:
     - port: 80
-      targetPort: 80
+      targetPort: 8000
 
   selector:
     app: centrifugo

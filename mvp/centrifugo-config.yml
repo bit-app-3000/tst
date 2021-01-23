@@ -12,10 +12,13 @@ data:
     admin_secret: secret
     log_level: debug
     admin: true
-    port: 80
     engine: memory
     websocket_compression: true
     client_insecure: true
     health: true
+    debug: false
     sockjs_disable: true
     api_disable: true
+    websocket_handler_prefix: /connect
+#    admin_handler_prefix: /admin
+
