@@ -1,13 +1,12 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: echo-hello-world
-  namespace: tekton-pipelines
+  name: hello
 spec:
   steps:
-    - name: echo
+    - name: hello
       image: ubuntu
       command:
         - echo
       args:
-        - "Hello World"
+        - "Hello World!"
